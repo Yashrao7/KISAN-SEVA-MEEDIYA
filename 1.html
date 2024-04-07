@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KISAN SEVA - MEEDIYA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #813030;
+            background-color: #155c9e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2 {
+            color: #0e0d0d;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        section {
+            width: 31%;
+            margin-bottom: 2rem;
+            background-color: #f7f0f0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+
+        section img {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            padding: 1rem;
+            text-align: center;
+            background-color: #155c9e;
+            color: #000000;
+        }
+
+        .blog-actions {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .blog-actions button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        .blog-actions button:hover {
+            background-color: #666;
+        }
+
+        @media (max-width: 1200px) {
+            section {
+                width: 48%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KISAN SEVA - MEEDIYA</h1>
+    </header>
+    <main>
+        <section id="climate-change">
+            <h2>Climate Change and its Impact on Farming</h2>
+            <p>Climate change is a pressing issue that affects various aspects of our lives, including farming. Learn more about the impact of climate change on farming here...</p>
+            <div class="blog-actions">
+                <button class="like-btn">Like</button>
+                <button class="comment-btn">Comment</button>
+            </div>
+            <span class="likes">0</span> Likes 
+        </section>
+        <section id="rare-crop-growth">
+            <h2>Uncovering the Secrets of Rare Crop Growth</h2>
+            <p>Have you ever come across a plant that left you in awe with its vibrant colors and unique features? Discover the secrets behind growing these rare crops...</p>
+            <div class="blog-actions">
+                <button class="like-btn">Like</button>
+                <button class="comment-btn">Comment</button>
+            </div>
+            <span class="likes">0</span> Likes 
+        </section>
+        <section id="selling-crops">
+            <h2>10 Tips for Selling Crops: Maximize Your Harvest's Potential</h2>
+            <p>Selling crops is a crucial aspect of farming. Check out these 10 tips to help you maximize your harvest's potential and sell your crops more effectively...</p>
+            <div class="blog-actions">
+                <button class="like-btn">Like</button>
+                <button class="comment-btn">Comment</button>
+            </div>
+            <span class="likes">0</span> Likes 
+        </section>
+    </main>
+    <footer>
+        <p>Kisan Seva - Meediya App ke seva mein agar kio help chaiye ho toh call kar 865.</p>
+    </footer>
+    <script>
+        // Function to increase the number of likes
+        function increaseLikes() {
+            var likesElement = this.parentElement.nextElementSibling;
+            var currentLikes = parseInt(likesElement.innerText);
+            likesElement.innerText = currentLikes + 1;
+        }
+
+        // Function to open the comment box modal
+        function openCommentBox() {
+            var modal = document.getElementById('comment-modal');
+            modal.style.display = "block";
+        }
+
+        // Function to close the comment box modal
+        function closeCommentBox() {
+            var modal = document.getElementById('comment-modal');
+            modal.style.display = "none";
+        }
+
+        // Function to submit comment
+        function submitComment() {
+            var commentTextarea = document.getElementById('comment-textarea');
+            var comment = commentTextarea.value;
+            console.log("Comment submitted:", comment);
+            commentTextarea.value = '';
+            closeCommentBox();
+        }
+
+        var likeButtons = document.querySelectorAll('.like-btn');
+        likeButtons.forEach(function(button) {
+            button.addEventListener('click', increaseLikes);
+        });
+        var commentButtons = document.querySelectorAll('.comment-btn');
+        commentButtons.forEach(function(button) {
+            button.addEventListener('click', openCommentBox);
+        });
+    </script>
+</body>
+</html>
